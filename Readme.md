@@ -1,0 +1,1 @@
+The examples with the API calls is in the Auth.postman_collection.json
