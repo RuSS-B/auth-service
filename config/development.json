@@ -1,0 +1,13 @@
+{
+  "logger": {
+    "level": "debug"
+  },
+  "prisma": {
+    "logLevel": [
+      "query",
+      "info",
+      "warn",
+      "error"
+    ]
+  }
+}

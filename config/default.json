@@ -1,0 +1,16 @@
+{
+  "logger": {
+    "level": "info"
+  },
+  "prisma": {
+    "logLevel": [
+      "error"
+    ]
+  },
+  "jwt": {
+    "secret": "SuperSecretStringGoesHere"
+  },
+  "server": {
+    "port": "3333"
+  }
+}
