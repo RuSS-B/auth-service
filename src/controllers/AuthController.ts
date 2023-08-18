@@ -11,6 +11,10 @@ import config from "config";
 import {addMonths} from "date-fns";
 import {User} from "@/model/User";
 
+type TJWTPayload = {
+    id: number;
+};
+
 @Controller("/auth")
 @Service()
 export default class AuthController {
@@ -64,9 +68,14 @@ export default class AuthController {
         const token = header.split(" ")[1];
 
         try {
-            const payload = jwt.verify(token, config.get("jwt.secret"));
+            const payload = jwt.verify(
+                token,
+                config.get("jwt.secret")
+            ) as TJWTPayload;
 
-            res.status(200).send(payload);
+            res.status(200)
+                .header("x-user-id", String(payload.id))
+                .send(payload);
         } catch (e) {
             throw createHttpError.Unauthorized("Invalid Authorization token");
         }
